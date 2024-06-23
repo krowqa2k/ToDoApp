@@ -21,9 +21,9 @@ struct AddView: View {
         ScrollView {
             VStack {
                 HStack {
-                    TextField("Type something here...", text: $textFieldText)
+                    TextField("Add something...", text: $textFieldText)
                         .padding(.horizontal)
-                        .frame(height: 55)
+                        .frame(height: 66)
                         .background(Color(UIColor.secondarySystemBackground))
                         .cornerRadius(10)
                         .focused($keyboardFocused)
@@ -33,7 +33,11 @@ struct AddView: View {
                             }
                         }
                     DatePicker("",selection: $datePickField, displayedComponents: .date)
-                        .frame(width: 100)
+                        .labelsHidden()
+                        .padding()
+                        .background(Color(UIColor.secondarySystemBackground))
+                        .cornerRadius(10)
+                        
                     Spacer()
                 }
                 
