@@ -10,6 +10,13 @@ import SwiftUI
 struct ListRowView: View {
     
     let item: ItemModel
+    private var formattedDate: String {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            formatter.timeStyle = .none
+            return formatter.string(from: item.date)
+        }
+    
     
     var body: some View {
         HStack {
@@ -17,6 +24,7 @@ struct ListRowView: View {
                 .foregroundStyle(item.isCompleted ? .green : .red)
             Text(item.title)
             Spacer()
+            Text(formattedDate)
         }
         .font(.title2)
         .padding(.vertical, 8)
@@ -25,8 +33,8 @@ struct ListRowView: View {
 
 #Preview {
     Group {
-        ListRowView(item: ItemModel(title: "First item!", isCompleted: false))
-        ListRowView(item: ItemModel(title: "Second item!", isCompleted: true))
+        ListRowView(item: ItemModel(title: "First item!", isCompleted: false, date: .now))
+        ListRowView(item: ItemModel(title: "Second item!", isCompleted: true, date: .now))
     }
     .previewLayout(.sizeThatFits)
 }

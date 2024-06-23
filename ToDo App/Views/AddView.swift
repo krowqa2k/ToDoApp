@@ -59,7 +59,7 @@ struct AddView: View {
     }
     
     func saveButtonPressed() {
-        listViewModel.addItem(title: textFieldText)
+        listViewModel.addItem(title: textFieldText, date: datePickField)
         dismiss()
     }
     
